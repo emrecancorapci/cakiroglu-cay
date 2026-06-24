@@ -4,7 +4,7 @@ import ProductCard from "./products/product-card";
 export function Products() {
   return (
     <section id="products" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
-      <div className="mx-auto max-w-2xl text-center">
+      <div className="mx-auto max-w-2xl text-balance md:text-center">
         <span className="text-lg font-semibold uppercase tracking-widest text-primary">
           {products.title}
         </span>

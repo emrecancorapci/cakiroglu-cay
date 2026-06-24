@@ -21,7 +21,7 @@ export function Hero() {
               ),
             )}
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="w-full mt-8 flex flex-col gap-3 sm:flex-row justify-center md:justify-start">
             <Button size="lg">
               <a className="flex gap-1 items-center" href="#contact">
                 {hero.buttonContact}
