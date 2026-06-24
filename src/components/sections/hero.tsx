@@ -7,9 +7,6 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24 lg:py-28">
         <div className="flex flex-col items-start">
-          <span className="mb-5 inline-flex items-center rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary">
-            Rize Çayı · Karadeniz
-          </span>
           <h1 className="text-balance font-serif text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             {hero.title}
           </h1>
@@ -38,20 +35,19 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="relative aspect-4/5 overflow-hidden rounded-2xl border border-border shadow-xl sm:aspect-5/6">
+          <div className="relative overflow-hidden rounded-2xl border border-border shadow-xl">
             <img
               src="/images/rize-tea-fields.png"
               alt="Lush terraced green tea fields on the misty mountains of Rize, Turkey"
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-          <div className="absolute -bottom-6 -left-4 hidden w-44 overflow-hidden rounded-xl border border-border bg-card shadow-lg sm:block lg:-left-10 lg:w-52">
+          <div className="absolute -bottom-16 -left-4 hidden w-44 overflow-hidden rounded-xl border border-border bg-card shadow-lg sm:block lg:-left-10 lg:w-52">
             <div className="relative aspect-square">
               <img
-                src="/images/turkish-tea-glass.png"
-                alt="A traditional tulip-shaped glass of deep amber Turkish black tea"
                 className="object-cover"
+                src="/images/store-outside.jpg"
+                alt="A traditional tulip-shaped glass of deep amber Turkish black tea"
                 sizes="208px"
               />
             </div>
