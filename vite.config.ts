@@ -15,8 +15,14 @@ export default defineConfig({
     react(),
     tailwindcss(),
     viteHtmlPlugin({
+      htmlClass: "scroll-smooth bg-background",
       title: "Çakıroğlu Çay",
-	  description: "Damak Zevkinize Göre"
+      description: "Damak Zevkinize Göre",
+      author: "Çakıroğlu Çay",
+      keywords: ["çay", "çakıroğlu"],
+      ogImage: "/images/logo-black-gold-close.jpg",
+      siteUrl: "",
+      twitterCard: "summary",
     }),
   ],
 });
