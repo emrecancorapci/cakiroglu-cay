@@ -1,7 +1,7 @@
 import { Leaf, Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { meta } from "@/data";
+import { contact, meta } from "@/data";
 
 const links = [
   { label: "Hikayemiz", href: "#story" },
@@ -38,7 +38,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <Button className="hidden sm:inline-flex">
-            <a className="flex gap-2 items-center" href="tel:+904640000000">
+            <a className="flex gap-2 items-center" href={`tel:${contact.blocks.contact.number}`}>
               <Phone className="size-4" />
               Bizi Arayın
             </a>
@@ -69,10 +69,10 @@ export function Navbar() {
               </a>
             ))}
             <Button className="mt-2 w-full">
-            <a className="flex gap-2 items-center" href="tel:+904640000000">
-              <Phone className="size-4" />
-              Bizi Arayın
-            </a>
+              <a className="flex gap-2 items-center" href={`tel:${contact.blocks.contact.number}`}>
+                <Phone className="size-4" />
+                Bizi Arayın
+              </a>
             </Button>
           </div>
         </div>
