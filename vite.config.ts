@@ -19,10 +19,21 @@ export default defineConfig({
       title: "Çakıroğlu Çay",
       description: "Damak Zevkinize Göre",
       author: "Çakıroğlu Çay",
-      keywords: ["çay", "çakıroğlu"],
-      ogImage: "/images/logo-black-gold-close.jpg",
-      siteUrl: "",
-      twitterCard: "summary",
+      keywords: ["çay", "çakıroğlu", "çakıroğlu çay"],
+      openGraph: {
+        title: "Çakıroğlu Çay - Damak Zevkinize Göre",
+        description:
+          "Karadeniz'in dik yamaçlarından elle toplanmış ve mineral bakımından zengin topraklarda yetiştirilen *Çakıroğlu Çay*, mükemmel demlenmiş bir fincan çayın koyu kırmızı rengini ve keskin, saf lezzetini sunar.",
+        image: "/images/logo-black-gold-close.jpg",
+        url: "",
+      },
+      twitter: {
+        title: "Çakıroğlu Çay - Damak Zevkinize Göre",
+        description:
+          "Karadeniz'in dik yamaçlarından elle toplanmış ve mineral bakımından zengin topraklarda yetiştirilen *Çakıroğlu Çay*, mükemmel demlenmiş bir fincan çayın koyu kırmızı rengini ve keskin, saf lezzetini sunar.",
+        image: "/images/logo-black-gold-close.jpg",
+        site: "",
+      },
     }),
   ],
 });

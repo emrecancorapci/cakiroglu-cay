@@ -3,11 +3,19 @@ interface HtmlPluginConfig {
   description?: string;
   keywords?: string[];
   author?: string;
-  // New social media properties
-  siteUrl?: string;
-  ogImage?: string;
-  twitterCard?: 'summary' | 'summary_large_image';
   htmlClass: string;
+  openGraph?: {
+    url?: string;
+    title?: string;
+    description?: string;
+    image?: string;
+  };
+  twitter?: {
+    site?: string;
+    title?: string;
+    description?: string;
+    image?: string;
+  };
 }
 
 function generateIndexFile({
@@ -15,10 +23,9 @@ function generateIndexFile({
   description,
   keywords,
   author,
-  siteUrl,
-  ogImage,
-  twitterCard = 'summary_large_image',
   htmlClass = "",
+  openGraph,
+  twitter,
 }: HtmlPluginConfig) {
   return `
 <!doctype html>
@@ -33,15 +40,15 @@ function generateIndexFile({
     ${author ? `<meta name="author" content="${author}">` : ""}
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="${title}" />
-    ${description ? `<meta property="og:description" content="${description}">` : ""}
-    ${siteUrl ? `<meta property="og:url" content="${siteUrl}">` : ""}
-    ${ogImage ? `<meta property="og:image" content="${ogImage}">` : ""}
+    ${openGraph?.title ? `<meta property="og:title" content="${openGraph.title}" />` : ""}
+    ${openGraph?.description ? `<meta property="og:description" content="${openGraph.description}">` : ""}
+    ${openGraph?.url ? `<meta property="og:url" content="${openGraph.url}">` : ""}
+    ${openGraph?.image ? `<meta property="og:image" content="${openGraph.image}">` : ""}
 
-    <meta name="twitter:card" content="${twitterCard}" />
-    <meta name="twitter:title" content="${title}" />
-    ${description ? `<meta name="twitter:description" content="${description}">` : ""}
-    ${ogImage ? `<meta name="twitter:image" content="${ogImage}">` : ""}
+    <meta name="twitter:card" content="summary_large_image" />
+    ${twitter?.title ? `<meta name="twitter:title" content="${twitter.title}" />` : ""}
+    ${twitter?.description ? `<meta name="twitter:description" content="${twitter.description}">` : ""}
+    ${twitter?.image ? `<meta name="twitter:image" content="${twitter?.image}">` : ""}
   </head>
   <body>
     <div id="root"></div>
@@ -53,8 +60,8 @@ function generateIndexFile({
 
 export function viteHtmlPlugin(config: HtmlPluginConfig) {
   return {
-    name: 'html-transform',
-    apply: 'build' as const, 
+    name: "html-transform",
+    apply: "build" as const,
     transformIndexHtml() {
       return generateIndexFile(config);
     },
