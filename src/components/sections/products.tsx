@@ -1,5 +1,5 @@
 import { products } from "@/data";
-import ProductCard from "./products/product-card";
+import ProductCard from "./components/product-card";
 
 export function Products() {
   return (
