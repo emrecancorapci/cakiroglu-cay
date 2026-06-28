@@ -24,13 +24,14 @@ function generateIndexFile({
   description,
   keywords,
   author,
+  iconPath,
   htmlClass = "",
   openGraph,
   twitter,
 }: HtmlPluginConfig) {
   return `
 <!doctype html>
-<html class=${htmlClass} lang="en">
+<html class="${htmlClass}" lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
