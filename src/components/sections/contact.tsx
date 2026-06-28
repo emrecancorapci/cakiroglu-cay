@@ -107,20 +107,6 @@ export function Contact() {
           </div>
         </div>
       </div>
-
-      <footer className="border-t border-border bg-background">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 sm:flex-row sm:px-6">
-          <div className="flex items-center gap-2">
-            <span className="flex size-7 items-center justify-center rounded-full bg-primary text-primary-foreground">
-              <Leaf className="size-4" />
-            </span>
-            <span className="font-serif text-base font-semibold text-foreground">{meta.title}</span>
-          </div>
-          <p className="text-center text-xs text-muted-foreground">
-            © {new Date().getFullYear()} {meta.title} · {meta.description}
-          </p>
-        </div>
-      </footer>
     </section>
   );
 }
