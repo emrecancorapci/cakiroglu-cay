@@ -3,6 +3,8 @@ export const meta = {
   description: "Özenle Seçilmiş Taze Yapraklar",
   keywords: [],
   author: "",
+  numberRaw: "+905358809544",
+  numberFormatted: "+90 535 880 9544",
 };
 
 export const hero = {
@@ -67,12 +69,12 @@ export const contact = {
   blocks: {
     address: {
       title: "Adresimiz",
-      content: "Çay Bahçesi Caddesi No. 12\nMerkez, 53100 Rize, Türkiye",
+      content: "Eskipazar, Hayrat Yolu No:34\n 61850 Of/Trabzon",
     },
     contact: {
       title: "İletişim",
       email: "info@cakiroglucay.com",
-      number: "+90 535 880 9544",
+      number: meta.numberFormatted,
     },
     workHours: {
       title: "Çalışma Saatleri",
@@ -82,6 +84,6 @@ export const contact = {
   socials: {
     instagram: "cakiroglucay",
     facebook: "cakiroglucay",
-    whatsapp: "+904640000000",
+    whatsapp: meta.numberRaw,
   },
 };
