@@ -1,9 +1,10 @@
 interface HtmlPluginConfig {
   title: string;
   description?: string;
-  keywords?: string[];
+  iconPath: string;
   author?: string;
   htmlClass: string;
+  keywords?: string[];
   openGraph?: {
     url?: string;
     title?: string;
@@ -34,6 +35,7 @@ function generateIndexFile({
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="${iconPath}">
     <title>${title}</title>
     ${description ? `<meta name="description" content="${description}">` : ""}
     ${keywords && keywords.length > 0 ? `<meta name="keywords" content="${keywords.join(", ")}">` : ""}

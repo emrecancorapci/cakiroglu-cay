@@ -19,6 +19,7 @@ export default defineConfig({
       title: "Çakıroğlu Çay",
       description: "Damak Zevkinize Göre",
       author: "Çakıroğlu Çay",
+      iconPath: "/images/logo-clear.svg",
       keywords: ["çay", "çakıroğlu", "çakıroğlu çay"],
       openGraph: {
         title: "Çakıroğlu Çay - Damak Zevkinize Göre",
