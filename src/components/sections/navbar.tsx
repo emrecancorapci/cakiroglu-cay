@@ -1,7 +1,10 @@
 import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
-import { contact } from "@/data";
+import { meta } from "@/data";
+
+import { WhatsappIcon } from "../icons";
 
 const links = [
   { label: "Hikayemiz", href: "#story" },
@@ -13,10 +16,14 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-primary/70 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <a href="#top" className="flex items-center size-full gap-2">
-          <img className="relative -bottom-3 -m-4 h-12" src="/images/logo-clear.svg" alt="Çakıroğlu Çay'ın Logosu" />
+        <a href="#top" className="flex px-4 items-center justify-center sm:justify-start size-full">
+          <img
+            className="relative -bottom-3 -m-4 h-12 -right-6 sm:right-0"
+            src="/images/logo-clear.svg"
+            alt="Çakıroğlu Çay'ın Logosu"
+          />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -33,9 +40,18 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <Button className="hidden sm:inline-flex">
-            <a className="flex gap-2 items-center" href={`tel:${contact.blocks.contact.number}`}>
+            <a className="flex gap-2 items-center" href={`tel:${meta.numberRaw}`}>
               <Phone className="size-4" />
               Bizi Arayın
+            </a>
+          </Button>
+          <Button className="hidden sm:inline-flex border-2 bg-green-600">
+            <a
+              className="flex gap-2 items-center"
+              href={`https://wa.me/${meta.numberRaw.substring(1)}`}
+            >
+              <WhatsappIcon className="size-4" />
+              <span className="hidden lg:flex">WhatsApp'tan Ulaşın</span>
             </a>
           </Button>
           <button
@@ -64,9 +80,18 @@ export function Navbar() {
               </a>
             ))}
             <Button className="mt-2 w-full">
-              <a className="flex gap-2 items-center" href={`tel:${contact.blocks.contact.number}`}>
+              <a className="flex gap-2 items-center" href={`tel:${meta.numberRaw}`}>
                 <Phone className="size-4" />
                 Bizi Arayın
+              </a>
+            </Button>
+            <Button className="border-2 bg-green-600">
+              <a
+                className="flex gap-2 items-center"
+                href={`https://wa.me/${meta.numberRaw.substring(1)}`}
+              >
+                <WhatsappIcon className="size-4" />
+                WhatsApp'tan Ulaşın
               </a>
             </Button>
           </div>
