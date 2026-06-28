@@ -1,15 +1,8 @@
-import { Clock, Leaf, MapPin, Phone, Send } from "lucide-react";
-import { useState } from "react";
-
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Clock, MapPin, Phone } from "lucide-react";
 
 import { contact, meta } from "@/data";
 
-import { FacebookIcon, InstagramIcon, WhatsappIcon } from "../icons";
+import { InstagramIcon, WhatsappIcon } from "../icons";
 
 const details = [
   {
@@ -22,7 +15,6 @@ const details = [
     title: contact.blocks.contact.title,
     lines: [
       { val: contact.blocks.contact.number, type: "number" },
-      { val: contact.blocks.contact.email, type: "email" },
     ],
   },
   {
@@ -33,19 +25,15 @@ const details = [
 ];
 
 const socials = [
-  { icon: InstagramIcon, label: "Instagram", href: "#" },
-  { icon: FacebookIcon, label: "Facebook", href: "#" },
-  { icon: WhatsappIcon, label: "WhatsApp", href: "#" },
+  {
+    icon: InstagramIcon,
+    label: "Instagram",
+    href: `https://instagram.com/${contact.socials.instagram}`,
+  },
+  { icon: WhatsappIcon, label: "WhatsApp", href: `https://wa.me/${meta.numberRaw.substring(1)}` },
 ];
 
 export function Contact() {
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
-
   return (
     <section id="contact" className="border-t border-border bg-primary/10">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-24">
@@ -90,77 +78,16 @@ export function Contact() {
                 </div>
               ))}
             </div>
-
-            <Card className="py-6 sm:py-8 bg-background">
-              <CardTitle className="px-6 sm:px-8 font-bold text-lg">
-                {contact.form.title}
-              </CardTitle>
-              <CardContent className="px-6 sm:px-8">
-                {submitted ? (
-                  <div className="flex h-full min-h-72 flex-col items-center justify-center text-center">
-                    <span className="flex size-12 items-center justify-center rounded-full bg-accent/15 text-accent">
-                      <Send className="size-6" />
-                    </span>
-                    <h3 className="mt-4 font-serif text-2xl font-semibold text-foreground">
-                      {contact.form.thanksTitle}
-                    </h3>
-                    <p className="mt-2 max-w-xs text-pretty text-sm leading-relaxed text-muted-foreground">
-                      {contact.form.thanksDescription}
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                    <div className="grid gap-2">
-                      <Label htmlFor="name">{contact.form.name}</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder={contact.form.namePlaceholder}
-                        required
-                      />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor="email">{contact.form.email}</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder={contact.form.emailPlaceholder}
-                        required
-                      />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor="message">{contact.form.message}</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        rows={5}
-                        placeholder={contact.form.messagePlaceholder}
-                        required
-                      />
-                    </div>
-                    <Button type="submit" size="lg" className="w-full">
-                      {contact.form.send}
-                      <Send className="size-4" />
-                    </Button>
-                  </form>
-                )}
-              </CardContent>
-            </Card>
-
-            {/* <div className="relative flex min-h-56 flex-1 items-center justify-center overflow-hidden rounded-xl border border-border bg-muted">
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 opacity-50 bg-[linear-gradient(var(--color-border)_1px,transparent_1px),linear-gradient(90deg,var(--color-border)_1px,transparent_1px)] bg-size-[32px_32px]"
-              />
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <span className="flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <MapPin className="size-6" />
-                </span>
-                <p className="mt-3 text-sm font-medium text-foreground">Rize, Black Sea Region</p>
-                <p className="text-xs text-muted-foreground">Map preview</p>
-              </div>
-            </div> */}
+            <div className="relative flex min-h-56 flex-1 items-center justify-center overflow-hidden rounded-xl border border-border bg-muted">
+              <iframe
+                title="Cakıroğlu Çay's Map Preview"
+                className="border-0 size-full"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d597.8011095884742!2d40.3061595903258!3d40.96552310671622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4065d50018cb4789%3A0x44aea31ee922e532!2zw4dBS0lST8SeTFUgw4dBWQ!5e0!3m2!1str!2str!4v1782630006028!5m2!1str!2str"
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              ></iframe>
+            </div>
 
             <div className="flex items-center gap-3">
               <span className="text-sm font-medium text-foreground">{contact.followText}</span>
