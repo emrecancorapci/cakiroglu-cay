@@ -1,7 +1,7 @@
-import { Leaf, Menu, Phone, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { contact, meta } from "@/data";
+import { contact } from "@/data";
 
 const links = [
   { label: "Hikayemiz", href: "#story" },
@@ -15,13 +15,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
-            <Leaf className="size-5" />
-          </span>
-          <span className="font-serif text-lg font-semibold tracking-tight text-foreground sm:text-xl">
-            {meta.title}
-          </span>
+        <a href="#top" className="flex items-center size-full gap-2">
+          <img className="relative -bottom-3 -m-4 h-12" src="/images/logo-clear.svg" alt="Çakıroğlu Çay'ın Logosu" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
